@@ -10,7 +10,6 @@
 
 #import <CommonCrypto/CommonDigest.h>
 
-
 #define OC_Swift_Bridge_Header_h
 
 

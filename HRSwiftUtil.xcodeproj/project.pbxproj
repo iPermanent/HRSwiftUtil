@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7EA9A04A1CE1D31D00A768A0 /* HRCustomSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9A0491CE1D31D00A768A0 /* HRCustomSwitch.swift */; };
 		7EA9A04E1CE1D58300A768A0 /* HRRoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9A04D1CE1D58300A768A0 /* HRRoundView.swift */; };
+		7EA9A0501CE1E02B00A768A0 /* HRDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA9A04F1CE1E02B00A768A0 /* HRDevice.swift */; };
 		7EADD0BD1CCDB76E00958BAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADD0BC1CCDB76E00958BAE /* AppDelegate.swift */; };
 		7EADD0BF1CCDB76E00958BAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADD0BE1CCDB76E00958BAE /* ViewController.swift */; };
 		7EADD0C21CCDB76E00958BAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EADD0C01CCDB76E00958BAE /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		7EA9A0491CE1D31D00A768A0 /* HRCustomSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRCustomSwitch.swift; sourceTree = "<group>"; };
 		7EA9A04D1CE1D58300A768A0 /* HRRoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRRoundView.swift; sourceTree = "<group>"; };
+		7EA9A04F1CE1E02B00A768A0 /* HRDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HRDevice.swift; sourceTree = "<group>"; };
 		7EADD0B91CCDB76E00958BAE /* HRSwiftUtil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HRSwiftUtil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EADD0BC1CCDB76E00958BAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7EADD0BE1CCDB76E00958BAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				7EDC06251CCE58F400A534ED /* UIView+extentions.swift */,
 				7EDC06271CCF013500A534ED /* UIImage+extensions.swift */,
 				7EA9A04D1CE1D58300A768A0 /* HRRoundView.swift */,
+				7EA9A04F1CE1E02B00A768A0 /* HRDevice.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				7EDC061E1CCDB87F00A534ED /* HRBaseModel.swift in Sources */,
 				7EA9A04A1CE1D31D00A768A0 /* HRCustomSwitch.swift in Sources */,
 				7EADD0BD1CCDB76E00958BAE /* AppDelegate.swift in Sources */,
+				7EA9A0501CE1E02B00A768A0 /* HRDevice.swift in Sources */,
 				7EDC06281CCF013500A534ED /* UIImage+extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
