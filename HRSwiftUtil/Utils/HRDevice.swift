@@ -8,6 +8,15 @@
 
 import UIKit
 import Foundation
+import CoreTelephony
+
+enum HRNetworkStatus {
+    case none
+    case via2G
+    case via3G
+    case via4G
+    case unknown
+}
 
 enum HRDeviceType {
     case iPhone
@@ -42,6 +51,7 @@ class HRDevice: NSObject {
         let name:String = HRDevice.getDeviceModel()
         print(name)
         
+        //add Some model names if apple publish new device
         switch name {
         case "iPhone1,1":
             return HRDeviceType.iPhone
@@ -107,4 +117,34 @@ class HRDevice: NSObject {
         
         return model!
     }
+    
+    //please use this with Reahiability, only use this with the WWAN network status, this cannot get wifi status
+    static func currentNetwork() -> HRNetworkStatus{
+        var status:HRNetworkStatus!
+        let telephoneInfo = CTTelephonyNetworkInfo.init()
+        
+        var networkStatus:String? = telephoneInfo.currentRadioAccessTechnology
+        if networkStatus == nil{
+            networkStatus = "unknown"
+        }
+        
+        switch networkStatus!{
+        case CTRadioAccessTechnologyLTE:
+            status = HRNetworkStatus.via4G
+        case CTRadioAccessTechnologyeHRPD,CTRadioAccessTechnologyHSDPA,CTRadioAccessTechnologyHSUPA,CTRadioAccessTechnologyWCDMA,CTRadioAccessTechnologyCDMAEVDORev0,CTRadioAccessTechnologyCDMAEVDORevA,CTRadioAccessTechnologyCDMAEVDORevB:
+            status = HRNetworkStatus.via3G
+        case CTRadioAccessTechnologyGPRS,CTRadioAccessTechnologyEdge,CTRadioAccessTechnologyCDMA1x:
+            status = HRNetworkStatus.via2G
+        default:
+            status = HRNetworkStatus.unknown
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserverForName(CTRadioAccessTechnologyDidChangeNotification, object: nil, queue: nil) { (notification) in
+            print(telephoneInfo.currentRadioAccessTechnology)
+        }
+        
+        
+        return status
+    }
+    
 }
