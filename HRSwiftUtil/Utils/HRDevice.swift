@@ -38,11 +38,20 @@ enum HRDeviceType {
     case iPadMini
     case iPadMini2
     case iPadMini3
+    case iPadMini4
     case iPad4
     case iPadAir
     case iPadAir2
-    case iPadPro
+    case iPadPro129
+    case iPadPro97
+    case watch1
+    case watch2
     case iPod
+    case iPod2
+    case iPod3
+    case iPod4
+    case iPod5
+    case iPod6
     case simulator
 }
 
@@ -51,7 +60,9 @@ class HRDevice: NSObject {
         let name:String = HRDevice.getDeviceModel()
         print(name)
         
-        //add Some model names if apple publish new device
+        /*add Some model names if apple publish new device look for it on the website below:
+            https://www.theiphonewiki.com/wiki/Models
+         */
         switch name {
         case "iPhone1,1":
             return HRDeviceType.iPhone
@@ -81,7 +92,7 @@ class HRDevice: NSObject {
             return HRDeviceType.iPhoneSE
         case "iPad1,1":
             return HRDeviceType.iPad
-        case "iPad2,1","iPad2,2","iPad2,3":
+        case "iPad2,1","iPad2,2","iPad2,3","iPad2,4":
             return HRDeviceType.iPad2
         case "iPad3,1","iPad3,2","iPad3,3":
             return HRDeviceType.iPad3
@@ -93,16 +104,36 @@ class HRDevice: NSObject {
             return HRDeviceType.iPadMini2
         case "iPad4,7","iPad4,8","iPad4,9":
             return HRDeviceType.iPadMini3
+        case "iPad5,2","iPad5,1":
+            return HRDeviceType.iPadMini4
         case "iPad4,1","iPad4,2","iPad4,3":
             return HRDeviceType.iPadAir
-        case "iPad5,1","iPad5,2","iPad5,3":
+        case "iPad5,4","iPad5,3":
             return HRDeviceType.iPadAir2
-        case "iPad6,1","iPad6,2","iPad6,3":
-            return HRDeviceType.iPadPro
+        case "iPad6,3","iPad6,4":
+            return HRDeviceType.iPadPro97
+        case "iPad6,7","iPad6,8":
+            return HRDeviceType.iPadPro129
+        case "Watch1,1":
+            return HRDeviceType.watch1
+        case "Watch1,2":
+            return HRDeviceType.watch2
+        case "iPod1,1":
+            return HRDeviceType.iPod
+        case "iPod2,1":
+            return HRDeviceType.iPod2
+        case "iPod3,1":
+            return HRDeviceType.iPod3
+        case "iPod4,1":
+            return HRDeviceType.iPod4
+        case "iPod5,1":
+            return HRDeviceType.iPod5
+        case "iPod7,1":
+            return HRDeviceType.iPod6
         case "x86_64":
             return HRDeviceType.simulator
         default:
-            return HRDeviceType.iPod
+            return HRDeviceType.simulator
         }
     }
     
