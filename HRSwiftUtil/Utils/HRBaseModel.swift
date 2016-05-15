@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HRBaseModel: NSObject ,NSCoding{
+class HRBaseModel: NSObject ,NSCoding,NSCopying{
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
@@ -75,5 +75,20 @@ class HRBaseModel: NSObject ,NSCoding{
         }else{
             print(NSStringFromClass(self.classForCoder) + "class with property" + name + "undeclare,array")
         }
+    }
+    
+    func copyWithZone(zone: NSZone) -> AnyObject {
+        let classType = self.classForCoder as? HRBaseModel.Type
+        let model:HRBaseModel! = classType!.init(dictionary:[:])
+        var count:UInt32 = 0
+        let ivars = class_copyPropertyList(self.classForCoder, &count)
+        for cnt:UInt32 in 0...count-1{
+            let ivr = ivars[Int(cnt)]
+            let name = ivar_getName(ivr)
+            let key:String = String(name)
+            model.setValue(self.valueForKey(key), forKey: key)
+        }
+        
+        return model
     }
 }
